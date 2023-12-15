@@ -1,0 +1,106 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#demo {
+  margin: 0;
+  padding: 0;
+  min-block-size: 100%;
+}
+
+/* Platform menu styles */
+
+.platform-menu__logo,
+.platform-menu__start,
+.platform-menu__center,
+.platform-menu__end {
+  display: contents;
+}
+
+/* App demo styles */
+
+.demo-app {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.demo-app__inner {
+  position: relative;
+  flex: 1;
+  padding-block-start: calc(var(--bds--dimension--space) * 0);
+  padding-block-end: calc(var(--bds--dimension--space) * 12);
+  padding-inline: calc(var(--bds--dimension--space) * 12);
+}
+
+.demo-app__inner:before {
+  z-index: 0;
+  display: none;
+  position: absolute;
+  content: " ";
+  inset: calc(var(--bds--dimension--space) * 5.5)
+    calc(var(--bds--dimension--space) * 6);
+  background: repeating-linear-gradient(
+    var(--bds--color--background--disabled),
+    var(--bds--color--background--disabled)
+      calc(var(--bds--dimension--space) * 5),
+    transparent calc(var(--bds--dimension--space) * 5),
+    transparent calc(var(--bds--dimension--space) * 10)
+  );
+  pointer-events: none;
+}
+
+.demo-grid {
+  display: grid;
+  gap: calc(var(--bds--dimension--space) * 1);
+  grid-template-columns: repeat(8, 1fr);
+  margin-block-end: calc(var(--bds--dimension--space) * 12);
+  margin-inline: calc(var(--bds--dimension--space) * -6);
+  border-radius: var(--bds--border--corner--large);
+  overflow: hidden;
+}
+
+.demo-grid__item {
+  aspect-ratio: 1 / 1;
+}
+
+.demo-header {
+  display: flex;
+  justify-content: space-between;
+  gap: calc(var(--bds--dimension--space) * 4);
+  align-items: center;
+}
+
+.demo-header .start,
+.demo-header .middle,
+.demo-header .end {
+  flex: 1;
+}
+
+.demo-header .start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-inline-size: max-content;
+}
+
+.demo-header .middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-inline-size: 0;
+}
+
+.demo-header .middle > * {
+  flex: 1;
+}
+
+.demo-header .end {
+  display: flex;
+  justify-content: flex-end;
+  min-inline-size: max-content;
+}
